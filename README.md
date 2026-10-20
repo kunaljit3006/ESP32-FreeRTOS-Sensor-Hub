@@ -4,7 +4,7 @@
 [![Platform](https://img.shields.io/badge/Platform-ESP32%20(32--bit%20Xtensa)-003B57?style=for-the-badge&logo=espressif&logoColor=white)](https://www.espressif.com/)
 [![RTOS](https://img.shields.io/badge/RTOS-FreeRTOS-F15A24?style=for-the-badge&logo=c&logoColor=white)](https://www.freertos.org/)
 [![Language](https://img.shields.io/badge/Language-C%2B%2B%20%2F%20Embedded%20C-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)](https://isocpp.org/)
-[![Simulator](https://img.shields.io/badge/Simulator-Wokwi-2B8A3E?style=for-the-badge)](https://wokwi.com)
+[![Simulator](https://img.shields.io/badge/Simulator-Wokwi_Live-2B8A3E?style=for-the-badge)](https://wokwi.com/projects/478381140773053441)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
 An industry-grade, deterministic edge telemetry and fault monitoring node engineered on the **ESP32** dual-core microcontroller using **C++** and **FreeRTOS**. 
@@ -15,9 +15,11 @@ The system simulates mission-critical data acquisition (DAQ) architectures commo
 
 ## Simulation Preview
 
+> **Live Project Link**: [https://wokwi.com/projects/478381140773053441](https://wokwi.com/projects/478381140773053441)
+
 [![Live Wokwi Simulation](https://img.shields.io/badge/Wokwi-Launch_Live_Simulation-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://wokwi.com/projects/478381140773053441)
 
-![Simulation Screenshot](screenshot.png)
+[![Simulation Screenshot](screenshot.png)](https://wokwi.com/projects/478381140773053441)
 
 ---
 
@@ -204,7 +206,7 @@ Raw Temp: 25.20 C | Filtered Avg: 25.75
 ## How to Run the Simulation
 
 ### Option A: Online Simulation via Wokwi
-1. Open the project on [Wokwi Web Simulator](https://wokwi.com/projects/478381140773053441).
+1. Open the live project directly: **[https://wokwi.com/projects/478381140773053441](https://wokwi.com/projects/478381140773053441)**
 2. Click the **Play / Start Simulation** button.
 3. Click the DHT22 sensor to modify temperature values interactively and observe the real-time response of the moving average filter on both the LCD screen and the Serial Monitor.
 
