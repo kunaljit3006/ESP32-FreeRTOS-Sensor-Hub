@@ -1,0 +1,4 @@
+# Wokwi Library Dependencies
+DHT sensor library
+Adafruit Unified Sensor
+LiquidCrystal I2C
