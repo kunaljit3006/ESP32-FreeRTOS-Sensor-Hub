@@ -15,7 +15,7 @@ The system simulates mission-critical data acquisition (DAQ) architectures commo
 
 ## Simulation Preview
 
-[![Live Wokwi Simulation](https://img.shields.io/badge/Wokwi-Launch_Live_Simulation-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](PASTE_YOUR_WOKWI_SHARE_LINK_HERE)
+[![Live Wokwi Simulation](https://img.shields.io/badge/Wokwi-Launch_Live_Simulation-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://wokwi.com/projects/478381140773053441)
 
 ![Simulation Screenshot](screenshot.png)
 
@@ -54,21 +54,21 @@ The firmware runs on the **FreeRTOS Preemptive Kernel**, coordinating two concur
 ```mermaid
 graph TD
     subgraph Sensing_Layer ["Sensor Acquisition Layer"]
-        DHT["DHT22 Temperature Sensor"] -->|1-Wire / GPIO 15| T1["Task: TaskReadSensor\n(Priority: 1 | Period: 500ms)"]
+        DHT["DHT22 Temperature Sensor"] -->|"1-Wire (GPIO 15)"| T1["Task: TaskReadSensor<br/>Priority: 1, Period: 500ms"]
     end
 
     subgraph IPC_Layer ["Thread-Safe RTOS IPC"]
-        T1 -->|xQueueSend\nportMAX_DELAY| Q["FreeRTOS Queue (tempQueue)\nCapacity: 10 float tokens"]
+        T1 -->|"xQueueSend()<br/>portMAX_DELAY"| Q["FreeRTOS Queue (tempQueue)<br/>Capacity: 10 float tokens"]
     end
 
     subgraph Processing_Layer ["DSP & Telemetry Layer"]
-        Q -->|xQueueReceive\nEvent-Driven Block| T2["Task: TaskProcessAndDisplay\n(Priority: 1 | Event-Driven)"]
-        T2 --> DSP["10-Point Circular Buffer\nMoving Average Filter"]
+        Q -->|"xQueueReceive()<br/>Event-Driven Block"| T2["Task: TaskProcessAndDisplay<br/>Priority: 1, Event-Driven"]
+        T2 --> DSP["10-Point Circular Buffer<br/>Moving Average Filter"]
     end
 
     subgraph Peripheral_Layer ["Deterministic Peripheral I/O"]
-        DSP -->|I2C Bus (0x27)\nGPIO 21/22| LCD["16x2 Industrial LCD Screen\n(Raw & Filtered Metrics)"]
-        DSP -->|UART TX/RX\n115200 Baud| UART["Telemetry Serial Stream / SCADA"]
+        DSP -->|"I2C Bus (0x27)<br/>GPIO 21 / GPIO 22"| LCD["16x2 Industrial LCD Screen<br/>Raw & Filtered Metrics"]
+        DSP -->|"UART TX/RX<br/>115200 Baud"| UART["Telemetry Serial Stream / SCADA"]
     end
 
     style Sensing_Layer fill:#0f172a,stroke:#38bdf8,stroke-width:1px,color:#f8fafc
@@ -204,7 +204,7 @@ Raw Temp: 25.20 C | Filtered Avg: 25.75
 ## How to Run the Simulation
 
 ### Option A: Online Simulation via Wokwi
-1. Open the project on [Wokwi Web Simulator](PASTE_YOUR_WOKWI_SHARE_LINK_HERE).
+1. Open the project on [Wokwi Web Simulator](https://wokwi.com/projects/478381140773053441).
 2. Click the **Play / Start Simulation** button.
 3. Click the DHT22 sensor to modify temperature values interactively and observe the real-time response of the moving average filter on both the LCD screen and the Serial Monitor.
 
